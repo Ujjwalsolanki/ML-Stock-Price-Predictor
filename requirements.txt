@@ -13,4 +13,8 @@ config-box
 python-box
 ensure
 pathlib
+pandas-datareader
+plotly
+cufflinks
+yfinance
 -e .
