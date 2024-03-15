@@ -17,4 +17,5 @@ pandas-datareader
 plotly
 cufflinks
 yfinance
+prophet
 -e .
