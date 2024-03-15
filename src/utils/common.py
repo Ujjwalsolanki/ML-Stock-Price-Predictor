@@ -102,7 +102,7 @@ class FileOperations:
             raise e
      
     @ensure_annotations
-    def save_model(self, model:Any, path:Path, filename:str):
+    def save_model(self, model, path:Path, filename:str):
         """Save model at specific location default will be artifacts/models
 
         Args:
@@ -120,7 +120,7 @@ class FileOperations:
                 os.makedirs(path)
             else:
                 os.makedirs(path) #
-            with open(path +'/' + filename+'.pickle', 'wb') as f:
+            with open(path / filename, 'wb') as f:
                 pickle.dump(model, f) # save the model to file
             logging.info('Model File '+filename+' saved. Exited the save_model method of the Model_Finder class')
 
@@ -130,7 +130,7 @@ class FileOperations:
             raise e
 
     @ensure_annotations
-    def load_model(self,file_name: str) -> Any:
+    def load_model(self,file_name: str):
         """Loads model based on model name
 
         Args:
@@ -145,7 +145,7 @@ class FileOperations:
         logging.info('Entered the load_model method of the File_Operation class')
         try:
             model_directory = "artifacts/models/"
-            with open(model_directory + file_name + '/' + file_name + '.pickle', 'rb') as f:
+            with open(model_directory + file_name, 'rb') as f:
                 model = pickle.load(f)
                 logging.info('Model File ' + file_name + ' loaded. Exited the load_model method of the Model_Finder class')
                 return model
